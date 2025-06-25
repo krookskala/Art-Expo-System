@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox spacing="20.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.pja.mas.s22899.artgallerygui.controller.ExhibitionDetailController" style="-fx-font-size: 14px;">
+    <padding>
+        <Insets bottom="20.0" left="25.0" right="25.0" top="20.0" />
+    </padding>
+    <Label fx:id="titleLabel" text="Exhibition Title" wrapText="true">
+        <font>
+            <Font name="System Bold" size="26.0" />
+        </font>
+    </Label>
+
+    <GridPane hgap="10.0" vgap="8.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="NEVER" />
+            <ColumnConstraints hgrow="ALWAYS" />
+        </columnConstraints>
+        <Label text="Type:" style="-fx-font-weight: bold;" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <Label fx:id="typeLabel" text="-" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+        <Label text="Dates:" style="-fx-font-weight: bold;" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <Label fx:id="datesLabel" text="-" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <Label text="Description:" alignment="TOP_LEFT" style="-fx-font-weight: bold;" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <Label fx:id="descriptionLabel" text="-" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+    </GridPane>
+
+    <Label text="Associated Artworks">
+        <font>
+            <Font name="System Bold" size="20.0" />
+        </font>
+        <VBox.margin>
+            <Insets top="10.0" />
+        </VBox.margin>
+    </Label>
+
+    <StackPane VBox.vgrow="ALWAYS">
+        <TableView fx:id="artworksTable">
+            <columns>
+                <TableColumn fx:id="titleColumn" minWidth="200.0" text="Title" />
+                <TableColumn fx:id="artistColumn" minWidth="150.0" text="Artist(s)" />
+                <TableColumn fx:id="yearColumn" prefWidth="75.0" text="Year" />
+                <TableColumn fx:id="genreColumn" minWidth="120.0" text="Genre" />
+            </columns>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+            </columnResizePolicy>
+        </TableView>
+        <ProgressIndicator fx:id="artworkLoadingIndicator" maxHeight="60.0" maxWidth="60.0" visible="false" />
+    </StackPane>
+</VBox>
